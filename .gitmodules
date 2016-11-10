@@ -17,3 +17,7 @@
 [submodule "svf"]
 	path = svf
 	url = git@github.com:/rboggild/SVF
+[submodule "binutils"]
+	path = binutils
+	url = git@github.com:/securesystemslab/binutils.git
+	branch = random_commons-2_26
