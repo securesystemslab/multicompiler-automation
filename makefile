@@ -1,17 +1,26 @@
-#!/bin/bash
 # makefile for multi-compiler project
+shell=/bin/bash
 
-.PHONY: gold 
+.PHONY: gold gold.config gold.build
 
 #llvm-cmake hypervisor-setup
+PREFIX=$(realpath tools)
 
 all:
 
-gold:
-	pushd binutils;                                                                     \
-	./configure --disable-werror --enable-plugins --enable-gold --prefix=$(pwd)/tools ; \
+install: gold.build
+	$(MAKE) -C binutils install
+
+
+gold.build: gold.config
+	$(MAKE) -C binutils
+
+
+gold.config:
+	pushd binutils ; \
+	./configure --disable-werror --enable-plugins --enable-gold --prefix=$(PREFIX) ; \
 	popd
+
 	#make ;                                                                              \
 	#make install ;                                                                      \
 	#popd
-	#AC_CONFIG_SUBDIRS(binutils)
