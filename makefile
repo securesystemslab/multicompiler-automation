@@ -2,7 +2,7 @@
 
 SHELL=/bin/bash
 
-.PHONY: gold gold.config gold.build clang
+#.PHONY: clang
 
 #llvm-cmake hypervisor-setup
 PREFIX=$(realpath tools)
@@ -11,7 +11,7 @@ all:
 
 #@echo "Prefix = $(value PREFIX)"
 
-install: gold.build gold.install clang.install
+install: gold.install clang.install
 
 gold.install: gold.build
 	$(MAKE) -C binutils install
@@ -19,21 +19,24 @@ gold.install: gold.build
 clang.install: tools/bin/clang tools/bin/ld.old tools/lib/bfd-plugins
 
 
-tools/bin/ld.old: tools/bin/ld.gold
+tools/bin/ld.old: gold.install
 	mv tools/bin/ld tools/bin/ld.old
-	ln -s ld.gold tools/bin/ld
+	ln -sf ld.gold tools/bin/ld
 
 gold.build: gold.config
 	$(MAKE) -C binutils
 
-gold.config:
+gold.config: binutils/.binutils_configured
+
+binutils/.binutils_configured:
 	pushd binutils ;                                    \
 	./configure --disable-werror                        \
 	--enable-plugins --enable-gold --prefix=$(PREFIX) ; \
+	touch .binutils_configured                          \
 	popd
 
 llvm/build:
-	mkdir llvm/build;                                 \
+	mkdir -p llvm/build;                              \
 	pushd llvm/build;                                 \
 	cmake .. -DLLVM_TARGETS_TO_BUILD="X86"            \
 		-DCMAKE_INSTALL_PREFIX=$(PREFIX)              \
@@ -42,10 +45,10 @@ llvm/build:
 		-G Ninja ;                                    \
 	popd
 
-tools/lib/bfd-plugins: tools/bin/clang tools/lib/LLVMgold.so
-	mkdir tools/lib/bfd-plugins ; \
-	touch tools/lib/bfd-plugins ; \
-	ln -s ../LLVMgold.so tools/lib/bfd-plugins
+tools/lib/bfd-plugins: tools/bin/clang gold.install
+	mkdir -p tools/lib/bfd-plugins ;           \
+		touch tools/lib/bfd-plugins ;          \
+	ln -sf ../LLVMgold.so tools/lib/bfd-plugins
 
 tools/bin/clang: llvm/build
 	pushd llvm/build; \
