@@ -6,3 +6,7 @@
 	path = clang
 	url = git@github.com:/securesystemslab/multicompiler-clang-priv.git
 	branch = cfar_38
+[submodule "compiler-rt"]
+	path = compiler-rt
+	url = git@github.com:/securesystemslab/multicompiler-compiler-rt-priv.git
+	branch = cfar_38
