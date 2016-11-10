@@ -1,0 +1,4 @@
+[submodule "llvm"]
+	path = llvm
+	url = git@github.com:securesystemslab/multicompiler-priv.git
+	branch = cfar_38
