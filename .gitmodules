@@ -14,3 +14,6 @@
 	path = poolalloc
 	url = git@github.com:/securesystemslab/poolalloc
 	branch = cfar_38
+[submodule "svf"]
+	path = svf
+	url = git@github.com:/rboggild/SVF
