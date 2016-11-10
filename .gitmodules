@@ -10,3 +10,7 @@
 	path = compiler-rt
 	url = git@github.com:/securesystemslab/multicompiler-compiler-rt-priv.git
 	branch = cfar_38
+[submodule "poolalloc"]
+	path = poolalloc
+	url = git@github.com:/securesystemslab/poolalloc
+	branch = cfar_38
