@@ -2,3 +2,7 @@
 	path = llvm
 	url = git@github.com:securesystemslab/multicompiler-priv.git
 	branch = cfar_38
+[submodule "clang"]
+	path = clang
+	url = git@github.com:/securesystemslab/multicompiler-clang-priv.git
+	branch = cfar_38
