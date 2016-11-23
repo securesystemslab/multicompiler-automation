@@ -58,10 +58,8 @@ tools/bin/clang: llvm/build
 
 clang: tools/lib/bfd-plugins
 
-test: test.cpp
+test-1: test.cpp
 	./tools/bin/clang++ test.cpp -flto -Wl,--plugin-opt,-random-seed=10
-
-
 
 test-2.o: test.cpp
         /var/lib/jenkins/jobs/Build-Hypervisor/workspace/17/project/hypervisor/build_scripts/x86_64-bareflank-clang++ -c test.cpp -o test-2.o -mllvm -shuffle-stack-frames 
@@ -75,7 +73,7 @@ test-3.o: test.cpp
 test-3: test-3.o
         ./tools/bin/clang++  test-3.o -flto -Wl,--plugin-opt,-random-seed=10
 
-
+test_all: test-1 test-2 test-3 
 
 
 clean_test:
