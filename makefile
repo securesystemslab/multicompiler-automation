@@ -62,16 +62,16 @@ test-1: test.cpp
 	./tools/bin/clang++ test.cpp -flto -Wl,--plugin-opt,-random-seed=10
 
 test-2.o: test.cpp
-        /var/lib/jenkins/jobs/Build-Hypervisor/workspace/17/project/hypervisor/build_scripts/x86_64-bareflank-clang++ -c test.cpp -o test-2.o -mllvm -shuffle-stack-frames 
+	/var/lib/jenkins/jobs/Build-Hypervisor/workspace/17/project/hypervisor/build_scripts/x86_64-bareflank-clang++ -c test.cpp -o test-2.o -mllvm -shuffle-stack-frames 
 
 test-2: test-2.o
-        /var/lib/jenkins/jobs/Build-Hypervisor/workspace/17/project/hypervisor/build_scripts/x86_64-bareflank-clang++  test-2.o -flto -Wl,--plugin-opt,-random-seed=10
+	/var/lib/jenkins/jobs/Build-Hypervisor/workspace/17/project/hypervisor/build_scripts/x86_64-bareflank-clang++  test-2.o -flto -Wl,--plugin-opt,-random-seed=10
 
 test-3.o: test.cpp
-        ./tools/bin/clang++ -c test.cpp -o test-3.o -mllvm -shuffle-stack-frames 
+	./tools/bin/clang++ -c test.cpp -o test-3.o -mllvm -shuffle-stack-frames 
 
 test-3: test-3.o
-        ./tools/bin/clang++  test-3.o -flto -Wl,--plugin-opt,-random-seed=10
+	./tools/bin/clang++  test-3.o -flto -Wl,--plugin-opt,-random-seed=10
 
 test_all: test-1 test-2 test-3 
 
