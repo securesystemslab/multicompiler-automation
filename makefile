@@ -88,7 +88,7 @@ test_all: test-1 test-2 test-3
 
 
 clean_test:
-	rm a.out test*.o
+	rm -rf a.out test*.o
 
 clean_llvm:
 	rm -rf llvm/build
