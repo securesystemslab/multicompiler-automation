@@ -1,4 +1,4 @@
-#/bin/bash -e
+#!/bin/bash -e
 
 
 git clone -b cfar_38 git@github.com:/securesystemslab/multicompiler-priv.git llvm
