@@ -10,3 +10,7 @@ git clone -b cfar_38 git@github.com:/securesystemslab/multicompiler-compiler-rt-
 git clone -b cfar_38 git@github.com:/securesystemslab/poolalloc llvm/projects/poolalloc
 
 git clone git@github.com:/rboggild/SVF llvm/projects/svf
+
+
+
+git clone -b random_commons-2_26 git@github.com:/securesystemslab/binutils.git
