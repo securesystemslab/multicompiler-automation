@@ -2,7 +2,7 @@
 
 SHELL=/bin/bash
 
-#.PHONY: clang
+# .PHONY: clean
 
 #llvm-cmake hypervisor-setup
 PREFIX=$(realpath tools)
@@ -58,42 +58,9 @@ tools/bin/clang: llvm/build
 
 clang: tools/lib/bfd-plugins
 
-test-1: test.cpp
-	./tools/bin/clang++ test.cpp -flto -Wl,--plugin-opt,-random-seed=10 -o test-1
-
-
-
-
-test-2.o: test.cpp
-	~/compilers/clang_38/bin/clang++ -c test.cpp -o test-2.o -mllvm -shuffle-stack-frames -mllvm -randomize-function-list
-
-test-2: test-2.o
-		~/compilers/clang_38/bin/clang++  test-2.o -flto -Wl,--plugin-opt,-random-seed=10 -o test-2
-
-
-
-#test-2.o: test.cpp
-	#/var/lib/jenkins/jobs/build-hypervisor/workspace/17/project/hypervisor/build_scripts/x86_64-bareflank-clang++ -c test.cpp -o test-2.o -mllvm -shuffle-stack-frames 
-
-#test-2: test-2.o
-	#/var/lib/jenkins/jobs/build-hypervisor/workspace/17/project/hypervisor/build_scripts/x86_64-bareflank-clang++  test-2.o -flto -wl,--plugin-opt,-random-seed=10 -o test-2
-
-test-3.o: test.cpp
-	./tools/bin/clang++ -c test.cpp -o test-3.o -mllvm -shuffle-stack-frames 
-
-test-3: test-3.o
-	./tools/bin/clang++  test-3.o -flto -Wl,--plugin-opt,-random-seed=10 -o test-3
-
-test_all: test-1 test-2 test-3 
-
-
-clean_test:
-	rm -rf a.out test*.o
-
 clean_llvm:
 	rm -rf llvm/build
 
 clean_install:
 	rm -rf tools/*
 
-clean: clean_test
