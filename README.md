@@ -18,6 +18,6 @@ This is a toplevel project skeleton for automating building the Multicompiler. T
 
 ### Ansible
 
-A standalone ansible role will soon be availible for the Multicompiler. In the meantime you may use https://github.com/ilovepi/vagrant-ansible-provisioning as a stand-in. That project builds the Multicompiler as part of the hypervisor, but it's playbooks can easily be adapted for stand-alone use with the multicompiler, by editing the bareflank_basics role, and the playbook.yml
+A standalone ansible role will soon be availible for the Multicompiler. In the meantime you may use https://github.com/securesystemslab/vagrant-ansible-provisioning as a stand-in. That project builds the Multicompiler as part of the hypervisor, but it's playbooks can easily be adapted for stand-alone use with the multicompiler, by editing the bareflank_basics role, and the playbook.yml
 
 These are all still WIP as these projects progress.
