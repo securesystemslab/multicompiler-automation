@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-PACKGES=libssl-dev      \
+PACKAGES="libssl-dev      \
     libpcre3-dev        \
     bzip2               \
     libtool             \
@@ -9,6 +9,9 @@ PACKGES=libssl-dev      \
     bison               \
     ninja-build         \
     cmake               \
-    texinfo
+    texinfo"
+
+
+echo $PACKAGES
 
 sudo apt-get install -y $PACKAGES

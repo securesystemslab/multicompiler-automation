@@ -37,7 +37,7 @@ tools/lib/bfd-plugins: tools/bin/clang gold.install
 	./create_bfd_plugins.sh
 
 tools/bin/clang: llvm/build
-	./build.sh
+	./build_clang.sh
 
 clang: tools/lib/bfd-plugins
 
