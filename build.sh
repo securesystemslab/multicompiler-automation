@@ -13,7 +13,7 @@ else
     ./git_pull.sh
 fi
 
-./patch_printf.sh
+./patch_printf.bash
 
 echo Building Multicompiler ...
 make install
