@@ -1,7 +1,7 @@
 # sub project folders
 llvm/*
 binutils/*
-
+.binutils_configured
 
 # Compiled Object files
 *.slo
