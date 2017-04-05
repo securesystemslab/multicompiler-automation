@@ -1,8 +1,8 @@
 # makefile for multi-compiler project
 
-SHELL=/bin/bash
+#SHELL=/bin/bash
 
-# .PHONY: clean
+#.PHONY: clean
 
 #llvm-cmake hypervisor-setup
 PREFIX=$(realpath tools)
@@ -18,9 +18,8 @@ gold.install: gold.build
 
 clang.install: tools/bin/clang tools/bin/ld.old tools/lib/bfd-plugins
 
-
 tools/bin/ld.old: gold.install
-	mv tools/bin/ld tools/bin/ld.old
+	mv tools/bin/ld tools/bin/ld.old; \
 	ln -sf ld.gold tools/bin/ld
 
 gold.build: gold.config
@@ -29,32 +28,16 @@ gold.build: gold.config
 gold.config: binutils/.binutils_configured
 
 binutils/.binutils_configured:
-	pushd binutils ;                                    \
-	./configure --disable-werror                        \
-	--enable-plugins --enable-gold --prefix=$(PREFIX) ; \
-	touch .binutils_configured                          \
-	popd
+	./configure_binutils.sh $(PREFIX)
 
 llvm/build:
-	mkdir -p llvm/build;                              \
-	pushd llvm/build;                                 \
-	cmake .. -DLLVM_TARGETS_TO_BUILD="X86"            \
-		-DCMAKE_INSTALL_PREFIX=$(PREFIX)              \
-		-DCMAKE_BUILD_TYPE=Release                    \
-		-DLLVM_BINUTILS_INCDIR=../../binutils/include \
-		-G Ninja ;                                    \
-	popd
+	./setup_llvm.sh $(PREFIX)
 
 tools/lib/bfd-plugins: tools/bin/clang gold.install
-	mkdir -p tools/lib/bfd-plugins ;           \
-		touch tools/lib/bfd-plugins ;          \
-	ln -sf ../LLVMgold.so tools/lib/bfd-plugins
+	./create_bfd_plugins.sh
 
 tools/bin/clang: llvm/build
-	pushd llvm/build; \
-	ninja;            \
-	ninja install;    \
-	popd
+	./build.sh
 
 clang: tools/lib/bfd-plugins
 
