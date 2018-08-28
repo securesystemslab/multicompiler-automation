@@ -11,4 +11,4 @@ git clone -b cfar_38 git@github.com:/securesystemslab/poolalloc llvm/projects/po
 
 git clone git@github.com:/rboggild/SVF llvm/projects/svf
 
-git clone -b random_commons-2_26 git@github.com:/securesystemslab/binutils.git
+git clone -b ubuntu18_04 git@github.com:/securesystemslab/binutils.git
