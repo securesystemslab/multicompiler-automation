@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-PACKAGES="libssl-dev      \
+PACKAGES="libssl1.0-dev      \
     libpcre3-dev        \
     bzip2               \
     libtool             \
