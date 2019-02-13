@@ -5,7 +5,7 @@
 #.PHONY: clean
 
 #llvm-cmake hypervisor-setup
-PREFIX=$(realpath tools)
+PREFIX="$(realpath tools)"
 
 all:
 
