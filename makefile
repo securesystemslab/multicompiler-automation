@@ -31,7 +31,7 @@ binutils/.binutils_configured:
 	./configure_binutils.sh $(PREFIX)
 
 llvm/build:
-	./setup_llvm.sh $(PREFIX)
+	./setup_llvm.sh "$(PREFIX)"
 
 tools/lib/bfd-plugins: tools/bin/clang gold.install
 	./create_bfd_plugins.sh
