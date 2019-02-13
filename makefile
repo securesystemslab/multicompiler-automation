@@ -28,7 +28,7 @@ gold.build: gold.config
 gold.config: binutils/.binutils_configured
 
 binutils/.binutils_configured:
-	./configure_binutils.sh $(PREFIX)
+	./configure_binutils.sh "$(PREFIX)"
 
 llvm/build:
 	./setup_llvm.sh "$(PREFIX)"
