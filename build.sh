@@ -6,13 +6,6 @@ if [[ $DISTRO = 'ubuntu' ]]; then
     ./install_ubuntu_packages.sh
 fi
 
-if [ ! -d "llvm" ]; then
-    ./fetch_multicompiler.sh
-
-else
-    ./git_pull.sh
-fi
-
 ./patch_printf.bash
 
 echo Building Multicompiler ...
