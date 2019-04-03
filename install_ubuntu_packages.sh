@@ -7,6 +7,7 @@ PACKAGES="
     bzip2               \
     cmake               \
     flex                \
+    g++-5               \
     libpcre3-dev        \
     libssl1.0-dev       \
     libtool             \
