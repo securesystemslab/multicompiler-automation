@@ -1,15 +1,17 @@
 #!/bin/bash -e
 
-PACKAGES="libssl1.0-dev      \
-    libpcre3-dev        \
-    bzip2               \
-    libtool             \
+PACKAGES="
     autotools-dev       \
-    build-essential     \
     bison               \
-    ninja-build         \
+    build-essential     \
+    bzip2               \
     cmake               \
-    texinfo"
+    flex                \
+    libpcre3-dev        \
+    libssl1.0-dev       \
+    libtool             \
+    ninja-build         \
+    texinfo             "
 
 
 echo $PACKAGES
