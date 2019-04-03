@@ -10,6 +10,7 @@ PACKAGES="
     libpcre3-dev        \
     libssl1.0-dev       \
     libtool             \
+    python              \
     ninja-build         \
     texinfo             "
 
