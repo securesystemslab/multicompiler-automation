@@ -9,6 +9,4 @@ git clone -b release_70 git@github.com:llvm-mirror/compiler-rt.git llvm/projects
 
 git clone -b cfar_70 git@github.com:/securesystemslab/poolalloc-priv llvm/projects/poolalloc
 
-git clone git@github.com:/rboggild/SVF llvm/projects/svf
-
 git clone -b ubuntu18_04 git@github.com:/securesystemslab/binutils.git
