@@ -23,7 +23,7 @@ tools/bin/ld.old: gold.install
 	ln -sf ld.gold tools/bin/ld
 
 gold.build: gold.config
-	$(MAKE) -C binutils
+	$(MAKE) -C binutils -j
 
 gold.config: binutils/.binutils_configured
 
