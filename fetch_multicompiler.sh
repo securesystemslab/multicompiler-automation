@@ -5,7 +5,7 @@ git clone -b cfar_70 git@github.com:/securesystemslab/multicompiler-priv.git llv
 
 git clone -b cfar_70 git@github.com:/securesystemslab/multicompiler-clang-priv.git llvm/tools/clang
 
-git clone -b release_70 git@github.com:llvm-mirror/compiler-rt.git llvm/projects/compiler-rt
+git clone -b vtrando_70 git@github.com:securesystemslab/multicompiler-compiler-rt-priv.git 
 
 git clone -b cfar_70 git@github.com:/securesystemslab/poolalloc-priv llvm/projects/poolalloc
 
