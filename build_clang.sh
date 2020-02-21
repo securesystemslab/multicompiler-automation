@@ -2,6 +2,6 @@
 
 pushd llvm/build
 ninja llvm-tblgen 
-ninja
+ninja clang
 ninja install
 popd

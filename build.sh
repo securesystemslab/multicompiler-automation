@@ -6,7 +6,5 @@ if [[ $DISTRO = 'ubuntu' ]]; then
     ./install_ubuntu_packages.sh
 fi
 
-./patch_printf.bash
-
 echo Building Multicompiler ...
 make install
