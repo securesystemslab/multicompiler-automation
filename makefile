@@ -4,7 +4,7 @@
 
 #.PHONY: clean
 
-PREFIX="$(realpath tools)"
+PREFIX=$(realpath tools)
 
 all:
 
